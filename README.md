@@ -22,12 +22,21 @@ pour compiler, utiliser un terminal bash car il y a un deplacement (rm et cp ver
 
 ## Gestionnaires
 
-Cette application se trouve dans le dossier gestionnaire;
+Cette application se trouve dans le dossier gestionnaire:
 
+Apres s'etre connecté :
 ![image](https://github.com/davidaverbouch/marcelRenov/blob/master/gestionnaire1.png)
+
+Detail en cliquant sur une intervention
 ![image](https://github.com/davidaverbouch/marcelRenov/blob/master/gestionnaire2.png)
+
+Rechercher une intervention
 ![image](https://github.com/davidaverbouch/marcelRenov/blob/master/gestionnaire3.png)
+
+Changer de partenaire (syndics)
 ![image](https://github.com/davidaverbouch/marcelRenov/blob/master/gestionnaire4.png)
+
+Vu Mobile
 ![image](https://github.com/davidaverbouch/marcelRenov/blob/master/gestionnaire5.png)
 
 ## Techniciens
@@ -43,4 +52,17 @@ Cette application se trouve dans le dossier technicien;
 Cette application se trouve dans le dossier direction;
 
 interface non responsive (a revoir), il y a de grands tableaux d'utilisateur avec la possibilité d en ajouter
+
 Revoir cette interface sous forme de carte plutot que de ligne dans un tableau
+
+
+## Reste a faire :
+
+    - rendre l'appli de la direction responsive
+    - permettre une utilisation en mode hors ligne
+    - mettre en place les tests (jest et cypress), par manque de temps, je n'ai pas ENCORE mis de test en place
+    - ajouter un bouton favori au gestionnaire pour facilement retrouver une intervention qu'on sait devoir revoir
+    - ajouter des notifications sur chacune des 3 applications
+    - envoi de sms automatique en cas de retard au prochain rdv (technicien)
+    - faire un dictionnaire de mots clé pour simplifier l'ajout de nouvelle intervention (redondance des titres et taches)
+    - générer un document en sortie (facture)
