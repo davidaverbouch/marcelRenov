@@ -1,6 +1,7 @@
 # Marcel rénovation app
 
 Ce projet est encore en cours de réalisation, cela fait 1,5 mois que je le developpe seul.
+Il est developpé en react avec le template redux, il est connecté à firebase (cloud de google)
 
 Ce projet contient 3 applications web :
 - Appli des gestionnaires
