@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "https://marcelrenov-web.web.app/technicien/static/css/main.4ad8d44f.css",
+    "main.js": "https://marcelrenov-web.web.app/technicien/static/js/main.2183713f.js",
+    "index.html": "https://marcelrenov-web.web.app/technicien/index.html",
+    "main.4ad8d44f.css.map": "https://marcelrenov-web.web.app/technicien/static/css/main.4ad8d44f.css.map",
+    "main.2183713f.js.map": "https://marcelrenov-web.web.app/technicien/static/js/main.2183713f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ad8d44f.css",
+    "static/js/main.2183713f.js"
+  ]
+}

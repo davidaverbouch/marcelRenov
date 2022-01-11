@@ -12,6 +12,15 @@
   --paye: rgb(0, 0, 100);
 }
 
+.MuiFormHelperText-root.Mui-error {
+  color: #f44336;
+  background: #f1f9f9;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 4px 14px 0;
+  margin-top: 0;
+}
+
 body {
   background-color: #f2f8f8;
 }
@@ -543,6 +552,7 @@ hr {
   cursor: pointer;
 }
 
+#reaffectMenu .MuiInputLabel-formControl,
 .CalendarComponent .MuiInputLabel-formControl {
   transform: translate(12px, 12px);
   padding: 0 4px;
@@ -550,6 +560,7 @@ hr {
   z-index: 10;
 }
 
+#reaffectMenu .MuiInputLabel-shrink,
 .CalendarComponent .MuiInputLabel-shrink {
   transform: translate(12px, -5.5px) scale(0.75);
   transform-origin: top left;
@@ -558,16 +569,30 @@ hr {
   padding: 0 4px;
 }
 
+#reaffectMenu .MuiOutlinedInput-notchedOutline,
 .CalendarComponent .MuiOutlinedInput-notchedOutline {
   border-color: #3f51b5;
 }
 
+#reaffectMenu .MuiInputBase-root,
+#reaffectMenu .MuiFormLabel-root,
+#reaffectMenu .MuiFormLabel-root.Mui-disabled,
+#reaffectMenu .MuiInputAdornment-root svg,
+#reaffectMenu .MuiSelect-icon,
 .CalendarComponent .MuiInputBase-root,
 .CalendarComponent .MuiFormLabel-root,
+.CalendarComponent .MuiFormLabel-root.Mui-disabled,
 .CalendarComponent .MuiInputAdornment-root svg,
 .CalendarComponent .MuiSelect-icon {
   color: #3f51b5;
   fill: #3f51b5;
+  padding-right: 0;
+}
+
+#reaffectMenu .MuiMenu-paper {
+  border: 2px solid #3f51b5;
+  padding: 0px 8px;
+  transform: translate3d(-25%, 56px, 0) !important;
 }
 
 .CalendarComponent .MuiInputBase-root,
@@ -579,10 +604,42 @@ hr {
   background-color: white;
 }
 
+.MuiMenu-paper .MuiListItem-root.Mui-selected, 
+.MuiMenu-paper .MuiListItem-root.Mui-selected:hover,
+.MuiMenu-list .MuiListItem-button:hover {
+  background-color: #3f51b5;
+  color: white;
+}
+
+#reaffectMenu .MuiMenu-list .MuiListItem-button:hover {
+  background-color: transparent;
+  color: black;
+  cursor: default;
+}
+
 .gutterCalendar {
   flex: 3;
   margin: 8px;
   height: 40px;
+}
+.detailHistoryWrapper:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  border: 7px double rgb(63 81 181 / 13%);
+  width: 14px;
+  transform: translateX(-50%);
+  border-top: none;
+  border-bottom: none;
+  z-index: -1;
+}
+
+.CalendarComponent .addImageWrapper .MuiInputBase-root:before,
+.CalendarComponent .addImageWrapper .MuiInputBase-root:after {
+  border: none !important;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
@@ -610,5 +667,90 @@ hr {
 @media (max-width: 756px) {
   .gutterCalendar {
     flex: 1 100%;
+    margin: 16px 8px 0;
   }
+
+  body .App {
+    padding-top: 38px;
+  }
+ 
+  .CalendarComponent > div {
+    margin: 12px 14px !important;
+  }
+
+  .App > div > h2 {
+    margin-top: 12px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .App .AjouterIntervention {
+    min-width: 78px !important;
+  }
+
+  .App .case_head {
+    min-width: 64px;
+    max-width: 64px;
+    overflow: hidden;
+  }
+  
+  .CalendarComponent > div.detailInter {
+    top: 38px;
+    margin: 0 !important;
+    padding: 0px 14px;
+  }
+}
+
+
+@-webkit-keyframes backOutUp {
+  0% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1)
+  }
+
+  20% {
+      opacity: .7;
+      -webkit-transform: translateY(0) scale(.7);
+      transform: translateY(0) scale(.7)
+  }
+
+  to {
+      opacity: .7;
+      -webkit-transform: translateY(-700px) scale(.7);
+      transform: translateY(-700px) scale(.7)
+  }
+}
+
+@keyframes backOutUp {
+  0% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1)
+  }
+
+  20% {
+      opacity: .95;
+      -webkit-transform: translateY(0) scale(.9);
+      transform: translateY(0) scale(.9)
+  }
+
+  to {
+      opacity: .95;
+      -webkit-transform: translateY(-100vh) scale(.9);
+      transform: translateY(-100vh) scale(.9)
+  }
+}
+
+.logged {
+  -webkit-animation-name: backOutUp;
+  animation-name: backOutUp;
+
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both
 }

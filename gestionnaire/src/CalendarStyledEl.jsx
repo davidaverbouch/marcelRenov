@@ -26,6 +26,10 @@ export const CalendarDetailDiv = styled.div`
     border-left: 2px solid #3f51b5;
     padding: 0 24px;
     box-shadow: -6px 6px 7px -5px #777;
+    @media (max-width: 768px) {
+        border-left: none;
+        box-shadow: none;
+    }
 `;
 
 export const CalendarRowDiv = styled.div`
@@ -35,7 +39,7 @@ export const CalendarRowDiv = styled.div`
     position: relative;
     width: fit-content;
     border-bottom: ${props => props.showRules ? '1px solid #3f51b5' : '1px solid #f2f8f9'};
-    border-top: ${props => props.showRules && (props.indexRow === 0) ? '1px solid #3f51b5' : props.showRules ? '1px solid #3f51b5' : ((props.indexRow < 0) ? '1px solid #f2f8f9' : 'none')};
+    border-top: ${props => props.showRules && (props.indexRow === 0) ? 'none' : props.showRules ? '1px solid #3f51b5' : ((props.indexRow < 0) ? '1px solid #f2f8f9' : 'none')};
 `;
 
 export const Case = styled.div`
@@ -94,6 +98,6 @@ export const InterventionButton = styled(Button)`
     word-break: break-all;
     text-overflow: ellipsis;
     z-index: 25;
-    opacity: ${props => (props.opacity ? .66 : 1)} !important;
+    opacity: ${props => props.opacity} !important;
     box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
 `;

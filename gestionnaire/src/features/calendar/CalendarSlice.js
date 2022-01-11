@@ -1,13 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getInter } from '../../firebaseConfig';
 
 const initialState = {
     isOpenDetail: false,
+    currentGestionnaireId: false,
     currentDate: new Date().toLocaleDateString(),
     currentSyndic: 'Foncia',
     currentIntervention: false,
+    currentInterventionId: false,
     syndics: {},
     users: {},
     interventions: {},
+    reducedInfo: {}
 };
 
 export const calendarSlice = createSlice({
@@ -29,9 +33,19 @@ export const calendarSlice = createSlice({
         },
         addUsers: {
             reducer: (state, action) => {
-                Object.keys(action.payload).forEach((o, i) => {
-                    state.users[o] = action.payload[o];
-                });
+                state.users = action.payload;
+            },
+        },
+        clearIntervention: {
+            reducer: (state, action) => {
+                state.interventions = {
+                    [state.currentInterventionId]: state.currentIntervention
+                }
+            },
+        },
+        addIntervention: {
+            reducer: (state, action) => {
+                state.interventions[action.payload.uid.trim()] = action.payload;
             },
         },
         addInterventions: {
@@ -39,6 +53,11 @@ export const calendarSlice = createSlice({
                 Object.keys(action.payload).forEach((o, i) => {
                     state.interventions[o] = action.payload[o];
                 });
+            },
+        },
+        addReducedInfo: {
+            reducer: (state, action) => {
+                state.reducedInfo = action.payload;
             },
         },
         setCurrentDate: {
@@ -50,7 +69,10 @@ export const calendarSlice = createSlice({
             reducer: (state, action) => { state.currentSyndic = action.payload; },
         },
         setCurrentIntervention: {
-            reducer: (state, action) => { state.currentIntervention = state.interventions[action.payload]; },
+            reducer: (state, action) => { state.currentIntervention = state.interventions[action.payload]; state.currentInterventionId = action.payload },
+        },
+        setCurrentGestionnaireId: {
+            reducer: (state, action) => { state.currentGestionnaireId = action.payload; },
         }
     },
 });
@@ -59,15 +81,20 @@ export const {
     setOpenDetail,
     addSyndics,
     addUsers,
+    clearIntervention,
+    addIntervention,
     addInterventions,
+    addReducedInfo,
     setCurrentDate,
     setCurrentIntervention,
-    setCurrentSyndic } = calendarSlice.actions;
+    setCurrentSyndic,
+    setCurrentGestionnaireId } = calendarSlice.actions;
 
 // Get global object
 export const getSyndics = (state) => state.calendar.syndics;
 export const getUsers = (state) => state.calendar.users;
 export const getInterventions = (state) => state.calendar.interventions;
+export const getCurrentInterventionId = (state) => state.calendar.currentInterventionId;
 
 // get one instance of object
 export const getSyndic = (state, id) => state.calendar.syndics[id];
@@ -76,7 +103,10 @@ export const getIntervention = (state, id) => state.calendar.interventions[id];
 export const getCurrentIntervention = (state) => state.calendar.currentIntervention;
 export const getCurrentSyndic = (state) => state.calendar.currentSyndic;
 export const getCurrentDate = (state) => state.calendar.currentDate;
+export const getCurrentGestionnaireId = (state) => state.calendar.currentGestionnaireId;
 
 export const detailIsOpen = (state) => state.calendar.isOpenDetail;
+
+export const searchInfo = (state) => state.calendar.reducedInfo;
 
 export default calendarSlice.reducer;
