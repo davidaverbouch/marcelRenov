@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getInter } from '../../firebaseConfig';
 
 const initialState = {
     isOpenDetail: false,
@@ -27,53 +26,31 @@ export const calendarSlice = createSlice({
             },
         },
         addSyndics: {
-            reducer: (state, action) => {
-                Object.keys(action.payload).forEach((o, i) => {
-                    state.syndics[o] = action.payload[o];
-                });
-            },
+            reducer: (state, action) => { state.syndics = action.payload; },
         },
         addUsers: {
-            reducer: (state, action) => {
-                state.users = action.payload;
-            },
+            reducer: (state, action) => { state.users = action.payload; },
         },
         clearIntervention: {
-            reducer: (state, action) => {
-                state.interventions = {};
-            },
+            reducer: (state, action) => { state.interventions = {}; },
         },
         addInterventionToday: {
-            reducer: (state, action) => {
-                state.interToday[action.payload.uid.trim()] = action.payload;
-            },
+            reducer: (state, action) => { state.interToday[action.payload.uid.trim()] = action.payload; },
         },
         addInterventionTomorrow: {
-            reducer: (state, action) => {
-                state.interTomorrow[action.payload.uid.trim()] = action.payload;
-            },
+            reducer: (state, action) => { state.interTomorrow[action.payload.uid.trim()] = action.payload; },
         },
         addIntervention: {
-            reducer: (state, action) => {
-                state.interventions[action.payload.uid.trim()] = action.payload;
-            },
+            reducer: (state, action) => { state.interventions[action.payload.uid.trim()] = action.payload; },
         },
         addInterventions: {
-            reducer: (state, action) => {
-                Object.keys(action.payload).forEach((o, i) => {
-                    state.interventions[o] = action.payload[o];
-                });
-            },
+            reducer: (state, action) => { state.interventions = action.payload; },
         },
         addReducedInfo: {
-            reducer: (state, action) => {
-                state.reducedInfo = action.payload;
-            },
+            reducer: (state, action) => { state.reducedInfo = action.payload; },
         },
         setCurrentDate: {
-            reducer: (state, action) => {
-                state.currentDate = new Date(action.payload).toLocaleDateString();
-            },
+            reducer: (state, action) => { state.currentDate = new Date(action.payload).toLocaleDateString(); },
         },
         setCurrentSyndic: {
             reducer: (state, action) => { state.currentSyndic = action.payload; },

@@ -137,6 +137,13 @@ function Employes() {
         }).then(init);
     };
 
+    const deleteSyndic = (u) => {
+        firebase.firestore().collection('syndics').doc(u.id).delete().then(() => {
+            console.log('Syndic supprimé');
+            init();
+        }).catch(e => console.log(e));
+    };
+
     const getPassword = (u) => {
         let dateE = u.dateEntree.toDate();
         let d = (dateE.getDate() < 10) ? '0' + dateE.getDate() : dateE.getDate();
@@ -281,7 +288,7 @@ function Employes() {
                                 <Select labelId="heureFinLabel" value={role} onChange={event => setRole(event.target.value)} >
                                     <MenuItem value={'technicien'}>TECHNICIEN</MenuItem>
                                     <MenuItem value={'gestionnaire'}>GESTIONNAIRE</MenuItem>
-                                    <MenuItem value={'stock'}>STOCK</MenuItem>
+                                    {/* <MenuItem value={'stock'}>STOCK</MenuItem> */}
                                     <MenuItem value={'direction'}>DIRECTION</MenuItem>
                                 </Select>
                             </FormControl>
@@ -304,7 +311,7 @@ function Employes() {
                         </div>
                         <div className="listEmploye">
                             {users.filter(u => u.role !== 'dev').map(u => <div className="employe">
-                                <TooltipBtn title="Notifier"><IconButton style={{ marginRight: 8 }} onClick={() => notifyUserModal(u.nom + ' ' + u.prenom, u.id)} aria-label="notifier" color="primary"><NotificationsIcon /></IconButton></TooltipBtn>
+                                {/* <TooltipBtn title="Notifier"><IconButton style={{ marginRight: 8 }} onClick={() => notifyUserModal(u.nom + ' ' + u.prenom, u.id)} aria-label="notifier" color="primary"><NotificationsIcon /></IconButton></TooltipBtn> */}
                                 <div style={{ flex: 3 }}>
                                     <div style={{ marginBottom: '6px' }}>
                                         <TooltipBtn title={"mot de passe : " + getPassword(u)}>
@@ -340,7 +347,7 @@ function Employes() {
                                     <div style={{ fontWeight: '700', marginBottom: '6px' }}>{Object.keys(u.interventionsList).length}</div>
                                     <div style={{ color: '#999', fontSize: '.75rem' }}>Interventions</div>
                                 </div>
-                                <div style={{ flex: 1, textAlign: 'right' }}>
+                                {/* <div style={{ flex: 1, textAlign: 'right' }}>
                                     <Tooltip title={(
                                         <div style={{ display: 'flex', flexWrap: 'wrap', width: '206px' }}>
                                             <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center', borderBottom: '1px solid #eee', padding: '4px' }}>
@@ -353,7 +360,7 @@ function Employes() {
                                         <div style={{ fontWeight: '700', marginBottom: '6px' }}>{u.completionInter && (Number.parseFloat(Object.values(u.completionInter).reduce((a, b) => a + b) / Object.values(u.completionInter).length).toFixed(2))}</div>
                                     </Tooltip>
                                     <div style={{ color: '#999', fontSize: '.75rem' }}>Complété</div>
-                                </div>
+                                </div> */}
                                 <div style={{ flex: 2, textAlign: 'right' }}>
                                     <TooltipBtn title="Editer"><IconButton onClick={() => { editUserModal(u); }} aria-label="edit" color="primary"><EditIcon /></IconButton></TooltipBtn>
                                     <TooltipBtn title="Supprimer"><IconButton onClick={() => deleteUser(u)} aria-label="supprimer" color="secondary"><CloseIcon /></IconButton></TooltipBtn>
@@ -379,20 +386,23 @@ function Employes() {
                                     <div style={{ flex: 1, padding: '16px', borderBottom: '1px solid' }}>{s.nom}</div>
                                     <div style={{ flex: 1, padding: '16px', borderBottom: '1px solid' }}>{s.addr}</div>
                                     <div style={{ flex: 1, padding: '16px', borderBottom: '1px solid' }}>{s.telephone}</div>
-                                    <div style={{ flex: 1, padding: '16px', borderBottom: '1px solid' }}>{s.id}</div>
+                                    {/* <div style={{ flex: 1, padding: '16px', borderBottom: '1px solid' }}>{s.id}</div> */}
+                                    <div style={{ padding: '0 16px', borderBottom: '1px solid', textAlign: 'right' }}>
+                                        <TooltipBtn title="Supprimer"><IconButton onClick={() => deleteSyndic(s)} aria-label="supprimer" color="secondary"><CloseIcon /></IconButton></TooltipBtn>
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </Grow>
 
-                <Dialog open={notifyModalOpening} maxWidth="sm" fullWidth TransitionComponent={Transition} keepMounted onClose={() => setNotifyModalOpening(false)}>
+                {/* <Dialog open={notifyModalOpening} maxWidth="sm" fullWidth TransitionComponent={Transition} keepMounted onClose={() => setNotifyModalOpening(false)}>
                     <DialogTitle style={{ textAlign: 'center', background: '#3f51b5', color: '#fff' }}>Notifications à {userIdentity}</DialogTitle>
                     <div style={{ padding: 24 }}>
                         <TextField multiline fullWidth label="Message a envoyer" value={notificationMsg} onChange={(e) => setNotificationMsg(e.target.value)} />
                     </div>
                     <Button onClick={notifyUser} color="primary" variant="contained" size="large" style={{ width: '400px', margin: '1em auto', borderRadius: 0, textTransform: 'none', fontWeight: '700' }}>Notifier {userIdentity}</Button>
-                </Dialog>
+                </Dialog> */}
 
                 {editUser && <Dialog open={editModalOpening} maxWidth="sm" fullWidth TransitionComponent={Transition} keepMounted onClose={() => setEditModalOpening(false)}>
                     <DialogTitle style={{ textAlign: 'center', background: '#3f51b5', color: '#fff' }}>Edition de {editUser.nom + ' ' + editUser.prenom}</DialogTitle>

@@ -147,7 +147,7 @@ export default function Dashboard(props) {
         <Slide direction="down" in={props.visibilityDashboard} mountOnEnter unmountOnExit>
             <div className="dashboardWrapper">
                 <div style={{ flex: 1, display: 'flex', padding: '24px 0', borderBottom: '1px solid #ccc' }}>
-                    <Paper elevation={1} style={{ flex: 1 }}>
+                    {/* <Paper elevation={1} style={{ flex: 1 }}>
                         <h3>Interventions Totales</h3>
                         <Chart data={interEtat} >
                             <PieSeries valueField="value" argumentField="etat" />
@@ -156,7 +156,7 @@ export default function Dashboard(props) {
                             <Tooltip />
                             <Animation />
                         </Chart>
-                    </Paper>
+                    </Paper> */}
                     <Paper elevation={1} style={{ flex: 1 }}>
                         <h3>Interventions par technicien</h3>
                         <Chart data={interByUser} rotated>
