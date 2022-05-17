@@ -362,7 +362,7 @@ function Employes() {
                                     <div style={{ color: '#999', fontSize: '.75rem' }}>Complété</div>
                                 </div> */}
                                 <div style={{ flex: 2, textAlign: 'right' }}>
-                                    <TooltipBtn title="Editer"><IconButton onClick={() => { editUserModal(u); }} aria-label="edit" color="primary"><EditIcon /></IconButton></TooltipBtn>
+                                    {/* <TooltipBtn title="Editer"><IconButton onClick={() => { editUserModal(u); }} aria-label="edit" color="primary"><EditIcon /></IconButton></TooltipBtn> */}
                                     <TooltipBtn title="Supprimer"><IconButton onClick={() => deleteUser(u)} aria-label="supprimer" color="secondary"><CloseIcon /></IconButton></TooltipBtn>
                                 </div>
                             </div>)}

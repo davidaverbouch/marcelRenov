@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://marcelrenov-web.web.app/direction/static/css/main.fe089b79.css",
-    "main.js": "https://marcelrenov-web.web.app/direction/static/js/main.1a2bbe77.js",
+    "main.js": "https://marcelrenov-web.web.app/direction/static/js/main.4cfa1cd2.js",
     "analytics.js": "https://marcelrenov-web.web.app/direction/static/js/analytics.9b1ca157.chunk.js",
     "auth.js": "https://marcelrenov-web.web.app/direction/static/js/auth.c5a4db78.chunk.js",
     "functions.js": "https://marcelrenov-web.web.app/direction/static/js/functions.8969ec69.chunk.js",
@@ -112,10 +112,10 @@
     "static/media/0-cagnotte.png": "https://marcelrenov-web.web.app/direction/static/media/0-cagnotte.95cb65b941d043194ae0.png",
     "index.html": "https://marcelrenov-web.web.app/direction/index.html",
     "main.fe089b79.css.map": "https://marcelrenov-web.web.app/direction/static/css/main.fe089b79.css.map",
-    "main.1a2bbe77.js.map": "https://marcelrenov-web.web.app/direction/static/js/main.1a2bbe77.js.map"
+    "main.4cfa1cd2.js.map": "https://marcelrenov-web.web.app/direction/static/js/main.4cfa1cd2.js.map"
   },
   "entrypoints": [
     "static/css/main.fe089b79.css",
-    "static/js/main.1a2bbe77.js"
+    "static/js/main.4cfa1cd2.js"
   ]
 }
