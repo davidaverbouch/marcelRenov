@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkadmin=self.webpackChunkadmin||[]).push([[730],{6530:function(n,e,s){s.r(e);s(2766)}}]);
